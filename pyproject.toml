@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "book-bot"
+version = "0.1.0"
+description = ""
+authors = ["Vasiliy Kryuchkov <vvvvk@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "book_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
