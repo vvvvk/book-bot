@@ -1,11 +1,15 @@
-BOOK_PATH = 'books/book.txt'
+# BOOK_PATH = 'books/book.txt'
+BOOK_PATH = 'books/Bredberi_Marsianskie-hroniki.txt'
+
 PAGE_SIZE = 1050
 
 book: dict[int, str] = {}
 
 
 def _get_part_text(text: str, start: int, size: int) -> tuple[str, int]:
-    end = min(len(text), start+size)
+    if start+size >= len(text):
+        return text[start:], len(text[start:])
+    end = start+size
     while text[end-1] not in ',.!:;?' or (end < len(text) and text[end] == '.'):
         end -= 1
 
@@ -15,7 +19,7 @@ def _get_part_text(text: str, start: int, size: int) -> tuple[str, int]:
 def prepare_book(path: str) -> None:
     global book
     with open(path) as file:
-        text = file.read()
+        text = file.read().strip()
     start, page = 0, 1
     while start < len(text):
         tmp, size = _get_part_text(text, start, PAGE_SIZE)
