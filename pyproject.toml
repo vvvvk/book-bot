@@ -8,6 +8,8 @@ packages = [{include = "book_bot"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+aiogram = "^2.24"
+environs = "^9.5.0"
 
 
 [build-system]
