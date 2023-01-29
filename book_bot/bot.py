@@ -25,7 +25,7 @@ async def main():
     logger.info('Starting bot')
     cfg: Config = load_config()
 
-    bot: Bot = Bot(cfg.bot.token)
+    bot: Bot = Bot(cfg.bot.token, parse_mode='HTML')
     dp: Dispatcher = Dispatcher(bot)
 
     await set_main_menu(dp)
