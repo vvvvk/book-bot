@@ -1,12 +1,13 @@
+from typing import Dict, Tuple
 # BOOK_PATH = 'books/book.txt'
 BOOK_PATH = 'books/Bredberi_Marsianskie-hroniki.txt'
 
 PAGE_SIZE = 1050
 
-book: dict[int, str] = {}
+book: Dict[int, str] = {}
 
 
-def _get_part_text(text: str, start: int, size: int) -> tuple[str, int]:
+def _get_part_text(text: str, start: int, size: int) -> Tuple[str, int]:
     if start+size >= len(text):
         return text[start:], len(text[start:])
     end = start+size
